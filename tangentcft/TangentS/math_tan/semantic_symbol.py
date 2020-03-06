@@ -1,6 +1,7 @@
 __author__ = 'KDavila'
 
-import TangentS.math_tan
+from math import ceil
+
 from .math_symbol import MathSymbol
 from .mathml import MathML
 from .exceptions import UnknownTagException
@@ -555,7 +556,7 @@ class SemanticSymbol(MathSymbol):
     def split_node(node):
         if len(node.children) > SemanticSymbol.MaxChildren:
             # do a binary split
-            mid_point = math_tan.ceil(len(node.children) / 2.0)
+            mid_point = ceil(len(node.children) / 2.0)
 
             # create new parents ...
             left_child = SemanticSymbol(node.tag, children=node.children[:mid_point], parent=node)
