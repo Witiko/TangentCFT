@@ -532,6 +532,10 @@ class SemanticSymbol(MathSymbol):
                 elif content == "superscript":
                     retval = SemanticSymbol("O!SUP", parent=parent)
 
+            elif cd == "mws":
+                if content == "qvar_":
+                    retval = SemanticSymbol("?", parent=parent)
+
             elif cd == "unknown":
                 # Unknown type ...
                 retval = SemanticSymbol("-!" + content, parent=parent)
