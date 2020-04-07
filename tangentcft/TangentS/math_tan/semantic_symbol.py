@@ -470,7 +470,14 @@ class SemanticSymbol(MathSymbol):
                                "not-less-than-or-similar-to", "not-empty-set", "not-maps-to",
                                "not-for-all", "not-minus", "not-factorial", "not-not-divides",
                                "not-succeeds-or-equivalent-to", "not-greater-than-or-less-than",
-                               "double-factorial"]:
+                               "double-factorial", "arcdegree", "arcminute", "arcsecond",
+                               "average-integral", "big-o", "cancel", "clockwise-contour-integral",
+                               "corresonds-to", "counter-clockwise-contour-integral",
+                               "counterclockwise-contour-integral", "greater-than-or-similar-to",
+                               "greater-than-or-similar-to-or-equal", "less-than-or-similar-to-or-equal",
+                               "day", "hour", "minute", "second", "similar-to-or-greater-than",
+                               "similar-to-or-less-than", "surface-integral", "triple-contour-integral",
+                               "upper-complexes", "trace"]:
                     retval = SemanticSymbol("O!" + content, parent=parent)
 
                 if content in ["not-asymptotically-equals", "not-not-equals", "join",
@@ -487,7 +494,8 @@ class SemanticSymbol(MathSymbol):
                                "square-intersection", "square-union",
                                "symmetric-difference", "tensor-product", "not-iff",
                                "not-intersection", "not-exclusive-or", "not-times",
-                               "not-or", "not-proper-intersection"]:
+                               "not-or", "not-proper-intersection", "additive-disjunction",
+                               "multiplicative-conjunction"]:
                     retval = SemanticSymbol("U!" + content, parent=parent)
 
                 elif content == "absent":
