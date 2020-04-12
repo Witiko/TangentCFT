@@ -9,10 +9,9 @@ setup(
     description="Packaged version of BehroozMansouri/TangentCFT",
     author="Vít Novotný",
     author_email="witiko@mail.muni.cz",
-    url="https://github.com/Witiko/TangentCFT",
+    url="https://github.com/MIR-MU/TangentCFT",
     packages=find_packages(),
     include_package_data=True,
-    setup_requires=["setuptools"],
     install_requires=["gensim~=3.8.1", "matplotlib~=3.0.3", "torch~=1.4.0"],
     package_data={
         "tangentcft": [
