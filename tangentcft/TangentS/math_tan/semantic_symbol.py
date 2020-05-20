@@ -389,7 +389,9 @@ class SemanticSymbol(MathSymbol):
             retval = SemanticSymbol("O!" + short_tag, parent=parent)
 
         # special constants
-        elif elem.tag in [MathML.infinity, MathML.emptyset, MathML.imaginaryi]:
+        elif elem.tag in [MathML.infinity, MathML.emptyset, MathML.imaginaryi, MathML.exponentiale,
+                          MathML.reals, MathML.integers, MathML.naturalnumbers, MathML.complexes,
+                          MathML.rationals]:  
             retval = SemanticSymbol("C!" + short_tag, parent=parent)
 
         # temporal modifiers of operators?
@@ -461,13 +463,13 @@ class SemanticSymbol(MathSymbol):
                                "very-much-greater-than", "very-much-less-than", "weierstrass-p",
                                "conditional", "differential-d", "not-implies", "implied-by",
                                "leads-to", "not-precedes-or-equals", "subgroup-of-or-equals",
-                               "subgroup-of", "contains-as-subgroup-or-equals",
+                               "subgroup-of", "contains-as-subgroup-or-equals", "not-leads-to",
                                "contains-as-subgroup", "not-infinity", "not-subgroup-of-or-equals",
                                "not-succeeds-or-equals", "not-square-image-of",
                                "not-subset-of-and-not-equals", "not-contains-as-subgroup-or-equals",
                                "multiple-integral", "not-less-than-or-greater-than", "not-integral",
                                "not-bottom", "not-not", "not-does-not-prove",
-                               "not-less-than-or-similar-to", "not-empty-set", "not-maps-to",
+                               "not-less-than-or-similar-to", "not-maps-to",
                                "not-for-all", "not-minus", "not-factorial", "not-not-divides",
                                "not-succeeds-or-equivalent-to", "not-greater-than-or-less-than",
                                "double-factorial", "arcdegree", "arcminute", "arcsecond",
@@ -477,27 +479,44 @@ class SemanticSymbol(MathSymbol):
                                "greater-than-or-similar-to-or-equal", "less-than-or-similar-to-or-equal",
                                "day", "hour", "minute", "second", "similar-to-or-greater-than",
                                "similar-to-or-less-than", "surface-integral", "triple-contour-integral",
-                               "upper-complexes", "trace"]:
+                               "upper-complexes", "trace", "quaternion-integral",
+                               "not-square-original-of-or-equals", "not-approaches-limit",
+                               "double-contour-integral", "⌈⟩⊑⟩⌈⌉", "ב⪸ב", "not-double-subset-of",
+                               "not-precedes-or-equivalent-to", "not-not-element-of",
+                               "quaternion-double-integral", "not-plus-or-minus",
+                               "not-square-original-of", "less-than", "less-than-or-equals",
+                               "not-divide", "not-greater-than-or-equivalent-to",
+                               "contour-integral-around-below", "not-sum", "not-subset-nor-equals",
+                               "not-square-image-of-nor-equals", "not-not-subset-of-nor-equals",
+                               "not-less-than-or-approximately-equals", "⌊⟩\\≀⇕⟩⊣↕",
+                               "not-greater-than-or-equals-or-less-than", "not-compose",
+                               "square-contour-integral", "not-superset-of-and-not-equals",
+                               "not-not-superset-of-nor-equals", "not-greater-than-and-not-equals",
+                               "not-equals-or-preceeds"]:
                     retval = SemanticSymbol("O!" + content, parent=parent)
-
-                if content in ["not-asymptotically-equals", "not-not-equals", "join",
-                               "not-less-than-nor-greater-than", "approximately-equals-or-equals",
-                               "coproduct", "double-union", "exclusive-or", "double-intersection",
-                               "geometrically-equals", "greater-than-or-equals-or-less-than",
-                               "greater-than-or-less-than", "iff", "inner-product", "not-and",
-                               "not-approximately-equals", "not-equivalent-to",
-                               "less-than-or-equals-or-greater-than", "similar-to",
-                               "similar-to-or-equals", "less-than-or-greater-than",
-                               "not-parallel-to",  "not-perpendicular-to",
-                               "not-proportional-to", "not-similar-to",
-                               "parallel-to", "proper-intersection",
-                               "square-intersection", "square-union",
-                               "symmetric-difference", "tensor-product", "not-iff",
-                               "not-intersection", "not-exclusive-or", "not-times",
-                               "not-or", "not-proper-intersection", "additive-disjunction",
-                               "multiplicative-conjunction"]:
+                elif content in ["not-asymptotically-equals", "not-not-equals", "join",
+                                 "not-less-than-nor-greater-than", "approximately-equals-or-equals",
+                                 "coproduct", "double-union", "exclusive-or", "double-intersection",
+                                 "geometrically-equals", "greater-than-or-equals-or-less-than",
+                                 "greater-than-or-less-than", "iff", "inner-product", "not-and",
+                                 "not-approximately-equals", "not-equivalent-to",
+                                 "less-than-or-equals-or-greater-than", "similar-to",
+                                 "similar-to-or-equals", "less-than-or-greater-than",
+                                 "not-parallel-to",  "not-perpendicular-to", "equivalent-to",
+                                 "not-proportional-to", "not-similar-to",
+                                 "parallel-to", "proper-intersection", "not-direct-sum",
+                                 "square-intersection", "square-union", "subset-plus",
+                                 "superset-plus", "symmetric-difference", "tensor-product",
+                                 "not-iff", "not-intersection", "not-exclusive-or", "not-times",
+                                 "not-or", "not-proper-intersection", "intersection-plus",
+                                 "additive-conjunction", "additive-disjunction",
+                                 "multiplicative-conjunction", "multiplicative-disjunction",
+                                 "not-difference-between", "not-approximately-equals-or-equals",
+                                 "not-equivalent-to-nor-equals", "not-geometrically-equals",
+                                 "approximately-equals", "not-not-equivalent-to"]:
                     retval = SemanticSymbol("U!" + content, parent=parent)
-
+                elif content in ["not-empty-set", "empty-set"]:
+                    retval = SemanticSymbol("C!" + content, parent=parent)
                 elif content == "absent":
                     retval = SemanticSymbol("W!", parent=parent)
                 elif content[:10] == "delimited-":
