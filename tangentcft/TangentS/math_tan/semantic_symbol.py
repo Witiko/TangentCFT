@@ -492,7 +492,8 @@ class SemanticSymbol(MathSymbol):
                                "not-greater-than-or-equals-or-less-than", "not-compose",
                                "square-contour-integral", "not-superset-of-and-not-equals",
                                "not-not-superset-of-nor-equals", "not-greater-than-and-not-equals",
-                               "not-equals-or-preceeds"]:
+                               "not-equals-or-preceeds", "not-contains-as-subgroup",
+                               "apl-reversal"]:
                     retval = SemanticSymbol("O!" + content, parent=parent)
                 elif content in ["not-asymptotically-equals", "not-not-equals", "join",
                                  "not-less-than-nor-greater-than", "approximately-equals-or-equals",
@@ -513,7 +514,8 @@ class SemanticSymbol(MathSymbol):
                                  "multiplicative-conjunction", "multiplicative-disjunction",
                                  "not-difference-between", "not-approximately-equals-or-equals",
                                  "not-equivalent-to-nor-equals", "not-geometrically-equals",
-                                 "approximately-equals", "not-not-equivalent-to"]:
+                                 "approximately-equals", "not-not-equivalent-to", "times",
+                                 "not-not-approximately-equals", "not-coproduct"]:
                     retval = SemanticSymbol("U!" + content, parent=parent)
                 elif content in ["not-empty-set", "empty-set"]:
                     retval = SemanticSymbol("C!" + content, parent=parent)
