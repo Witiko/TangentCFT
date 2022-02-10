@@ -12,7 +12,7 @@ setup(
     url="https://github.com/MIR-MU/TangentCFT",
     packages=find_packages(),
     include_package_data=True,
-    install_requires=["gensim~=3.8.1", "matplotlib~=3.0.3", "torch~=1.4.0"],
+    install_requires=["torch~=1.4.0"],
     package_data={
         "tangentcft": [
             "Configuration/config/config_1",
