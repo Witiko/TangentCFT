@@ -12,7 +12,7 @@ setup(
     url="https://github.com/MIR-MU/TangentCFT",
     packages=find_packages(),
     include_package_data=True,
-    install_requires=["torch~=1.4.0"],
+    install_requires=["torch>=1.4.0"],
     package_data={
         "tangentcft": [
             "Configuration/config/config_1",
